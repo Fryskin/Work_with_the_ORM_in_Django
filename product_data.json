@@ -1,0 +1,28 @@
+[
+  {
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+      "title": "iCan",
+      "description": "It can do a lot.",
+      "preview": "",
+      "category": "Phones",
+      "price": 105000,
+      "date_of_creation": "2023-07-12",
+      "date_of_last_change": "2023-07-12"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+      "title": "iGroot",
+      "description": "It's definitely Groot.",
+      "preview": "",
+      "category": "Laptops",
+      "price": 171000,
+      "date_of_creation": "2023-07-12",
+      "date_of_last_change": "2023-07-12"
+    }
+  }
+]
