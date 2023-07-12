@@ -29,9 +29,9 @@ class Command(BaseCommand):
 
         Product.objects.bulk_create(products_to_fill)
 
-        # path_2 = "data.json"
+        # path_2 = "category_data.json"
         #
-        # with open("category_data.json") as json_file_2:
+        # with open(path_2) as json_file_2:
         #     content = json.load(json_file_2)
         #     json_file_2.close()
         #
