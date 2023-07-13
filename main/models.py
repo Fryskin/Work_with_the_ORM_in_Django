@@ -13,7 +13,7 @@ class Product(models.Model):
     date_of_last_change = models.DateField(verbose_name='date_of_last_change')
 
     def __str__(self):
-        return f'{self.title},{self.description}, {self.category}, {self.price},' \
+        return f'{self.title}, {self.description}, {self.category}, {self.price},' \
                f' {self.date_of_creation}, {self.date_of_last_change}'
 
     class Meta:
