@@ -3,9 +3,9 @@
     "model": "main.product",
     "pk": 1,
     "fields": {
-      "title": "iCan",
-      "description": "It can do a lot.",
-      "preview": "",
+      "title": "iFon",
+      "description": "It can do a lot",
+      "preview": "products/introducing-the-iphone-02.png",
       "category": "Phones",
       "price": 105000,
       "date_of_creation": "2023-07-12",
@@ -16,11 +16,24 @@
     "model": "main.product",
     "pk": 2,
     "fields": {
-      "title": "iGroot",
-      "description": "It's definitely Groot.",
-      "preview": "",
+      "title": "Moc",
+      "description": "It's definitely Moc",
+      "preview": "products/9fce14fdd18bcc6b192821418b07263f--apple-laptop-apple-a.jpg",
       "category": "Laptops",
       "price": 171000,
+      "date_of_creation": "2023-07-12",
+      "date_of_last_change": "2023-07-12"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 3,
+    "fields": {
+      "title": "Sumsang GALAXY X3M",
+      "description": "Super phone",
+      "preview": "products/samsung-meme-pfp-for-discord-16814gzmn1byiwzr.jpg",
+      "category": "Phones",
+      "price": 228000,
       "date_of_creation": "2023-07-12",
       "date_of_last_change": "2023-07-12"
     }
