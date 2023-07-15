@@ -7,7 +7,7 @@ class Product(models.Model):
     title = models.CharField(max_length=50, verbose_name='title')
     description = models.CharField(max_length=100, verbose_name='description')
     preview = models.ImageField(upload_to='products/', verbose_name='preview', **NULLABLE)
-    category = models.CharField(max_length=100, verbose_name='category')
+    category = models.ForeignKey('Category', verbose_name='category', on_delete=models.SET_NULL, **NULLABLE)
     price = models.IntegerField(verbose_name='price')
     date_of_creation = models.DateField(verbose_name='date_of_creation')
     date_of_last_change = models.DateField(verbose_name='date_of_last_change')
@@ -33,4 +33,5 @@ class Category(models.Model):
         verbose_name = 'category'
         verbose_name_plural = 'categories'
         ordering = ('title',)
+
 

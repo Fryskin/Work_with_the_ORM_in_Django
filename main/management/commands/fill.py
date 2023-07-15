@@ -8,20 +8,14 @@ from main.models import Product, Category
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        path = "product_data.json"
-
-        with open(path) as json_file:
-            content = json.load(json_file)
-
         products_list = []
-        for product in content:
-            products_list.append({'title': product['fields']['title'],
-                                  'description': product['fields']['description'],
-                                  'preview': product['fields']['preview'],
-                                  'category': product['fields']['category'],
-                                  'price': product['fields']['price'],
-                                  'date_of_creation': product['fields']['date_of_creation'],
-                                  'date_of_last_change': product['fields']['date_of_last_change']})
+        products_list.append({"title": "Sus Phone ass5",
+                              "description": "Super phone",
+                              "preview": "",
+                              "category": 1,
+                              "price": 600000,
+                              "date_of_creation": "2023-07-12",
+                              "date_of_last_change": "2023-07-12"})
 
         products_to_fill = []
         for product in products_list:
@@ -29,16 +23,10 @@ class Command(BaseCommand):
 
         Product.objects.bulk_create(products_to_fill)
 
-        path_2 = "category.json"
-
-        with open(path_2) as json_file_2:
-            content = json.load(json_file_2)
-
         categories_list = []
-        for category in content:
-            categories_list.append({'title': category['fields']['title'],
-                                    'description': category['fields']['description']
-                                    })
+
+        categories_list.append({"title": "Phones",
+                                "description": "Everything that can make the call."})
 
         categories_to_fill = []
         for category in categories_list:
