@@ -1,0 +1,44 @@
+[
+  {
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+      "title": "Sumsang Galactik ass3",
+      "description": "Super phone",
+      "preview": "products/samsung-meme-pfp-for-discord-16814gzmn1byiwzr_yGhy1aU.jpg",
+      "category": 1,
+      "price": 600000,
+      "date_of_creation": "2023-07-12",
+      "date_of_last_change": "2023-07-12"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+      "title": "Imoc",
+      "description": "It's definitely Moc.",
+      "preview": "products/9fce14fdd18bcc6b192821418b07263f--apple-laptop-apple-a_7YkRXB2.jpg",
+      "category": 2,
+      "price": 12400000,
+      "date_of_creation": "2023-07-12",
+      "date_of_last_change": "2023-07-12"
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 1,
+    "fields": {
+      "title": "Phones",
+      "description": "Everything that can make the call."
+    }
+  },
+  {
+    "model": "main.category",
+    "pk": 2,
+    "fields": {
+      "title": "Laptops",
+      "description": "For your work"
+    }
+  }
+]
