@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="col">
+    <div class="card shadow-sm">
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="0"
+             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+             preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+            {% if object.preview %}
+            <img src="/media/{{ object.preview }}" width="419" height="400" />
+
+            {% endif %}
+            <rect width="100%" height="100%" fill="#55595c"/>
+
+        </svg>
+        <div class="card-body">
+            <p class="card-text">{{ object|title }}</p>
+            <a href="{% url 'blog:list' %}" type="button" class="btn btn-sm btn-outline-secondary">Back</a>
+
+        </div>
+        <div class="card-footer" >Views {{ object.count_of_views }}</div>
+        <div class="card-footer" >Date of creation {{ object.date_of_creation }}</div>
+    </div>
+</div>
+
+{% endblock %}

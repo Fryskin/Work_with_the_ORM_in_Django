@@ -35,18 +35,3 @@ class Category(models.Model):
         ordering = ('title',)
 
 
-class Blog(models.Model):
-    title = models.CharField(max_length=30, verbose_name='title')
-    slug = models.SlugField(primary_key=True, max_length=250, unique=True, default='')
-    body = models.TextField(verbose_name='content')
-    preview = models.ImageField(upload_to='products/', verbose_name='preview', **NULLABLE)
-    date_of_creation = models.DateField(verbose_name='date of creation')
-    count_of_views = models.IntegerField(verbose_name='count of views')
-
-    def __str__(self):
-        return f'{self.title}, {self.slug}, {self.body}, {self.preview}, {self.date_of_creation}, {self.count_of_views}'
-
-    class Meta:
-        verbose_name = 'blog'
-        verbose_name_plural = 'blogs'
-
