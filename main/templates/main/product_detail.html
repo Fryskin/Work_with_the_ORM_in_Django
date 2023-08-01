@@ -1,35 +1,30 @@
 {% extends 'main/base.html' %}
 {% block content %}
-<a href="{% url 'main:create_product' %}" type="button" class="btn btn-sm btn-outline-secondary">Add your product</a>
-{% for object in object_list %}
 <div class="col">
     <div class="card shadow-sm">
         <svg class="bd-placeholder-img card-img-top" width="100%" height="0"
              xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
              preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+            {% if object.preview %}
             <img src="/media/{{ object.preview }}" width="419" height="400" />
+
+            {% endif %}
             <rect width="100%" height="100%" fill="#55595c"/>
 
         </svg>
         <div class="card-body">
             <p class="card-text">Title: {{ object.title }}</p>
-
+            <p class="card-text">Description: {{ object.description }}</p>
             <p class="card-text">Category: {{ object.category }}</p>
 
+            <p class="card-text">Last change: {{ object.date_of_last_change }}</p>
             <p class="card-text">Price: {{ object.price }} rub</p>
+            <a href="{% url 'main:index' %}" type="button" class="btn btn-sm btn-outline-secondary">Back</a>
 
-
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <a href="{% url 'main:view_product' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
-                    <a href="{% url 'main:edit_product' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
-                    <a href="{% url 'main:delete_product' object.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Delete</a>
-                </div>
-
-            </div>
         </div>
+
+        <div class="card-footer" >Date of creation {{ object.date_of_creation }}</div>
     </div>
 </div>
-{% endfor %}
 
 {% endblock %}
