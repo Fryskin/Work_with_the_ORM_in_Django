@@ -4,6 +4,14 @@
         <li><a href="{% url 'main:index' %}" class="text-white">Main page</a></li>
         <li><a href="{% url 'blog:list' %}" class="text-white">Blogs</a></li>
         <li><a href="{% url 'main:home' %}" class="text-white">Contacts</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'user:profile' %}" class="text-white">Profile</a></li>
+        <li><a href="{% url 'user:logout' %}" class="text-white">Log out</a></li>
+
+        {% else %}
+        <li><a href="{% url 'user:login' %}" class="text-white">Log in</a></li>
+        <li><a href="{% url 'user:register' %}" class="text-white">Register</a></li>
+        {% endif %}
 
 
     </ul>
