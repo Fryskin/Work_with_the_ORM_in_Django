@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 NULLABLE = {'blank': True, 'null': True}
@@ -12,9 +13,11 @@ class Product(models.Model):
     date_of_creation = models.DateField(verbose_name='date_of_creation')
     date_of_last_change = models.DateField(verbose_name='date_of_last_change')
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='owner')
+
     def __str__(self):
         return f'{self.title}, {self.description}, {self.category}, {self.price},' \
-               f' {self.date_of_creation}, {self.date_of_last_change}'
+               f' {self.date_of_creation}, {self.date_of_last_change}, {self.owner}'
 
     class Meta:
         verbose_name = 'product'
