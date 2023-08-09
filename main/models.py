@@ -12,7 +12,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='price')
     date_of_creation = models.DateField(verbose_name='date_of_creation')
     date_of_last_change = models.DateField(verbose_name='date_of_last_change')
-
+    is_published = models.BooleanField(default=False, verbose_name='publish status', **NULLABLE)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='owner')
 
     def __str__(self):
@@ -20,9 +20,17 @@ class Product(models.Model):
                f' {self.date_of_creation}, {self.date_of_last_change}, {self.owner}'
 
     class Meta:
+
         verbose_name = 'product'
         verbose_name_plural = 'products'
         ordering = ('title',)
+
+        permissions = [
+            (
+                "can_edit_product",
+                "Can Edit Product"
+            )
+        ]
 
 
 class Category(models.Model):

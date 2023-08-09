@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
@@ -48,7 +49,7 @@ class ProductCreateView(CreateView):
         return context_data
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     success_url = reverse_lazy('main:index')
     form_class = ProductForm
@@ -74,6 +75,12 @@ class ProductUpdateView(UpdateView):
         else:
             context_data['formset'] = product_formset(instance=self.object)
         return context_data
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object.owner != self.request.user:
+            raise PermissionError('Bruh. You are not the owner.')
+        return self.object
 
 
 class ProductDetailView(DetailView):
