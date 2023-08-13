@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.cache import cache
 from django.db import transaction
 from django.forms import inlineformset_factory
 from django.urls import reverse_lazy, reverse
@@ -85,6 +87,20 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
 
 class ProductDetailView(DetailView):
     model = Product
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        if settings.CACHE_ENABLED:
+            key = f'version_list_{self.object.pk}'
+            version_list = cache.get(key)
+            if version_list is None:
+                version_list = self.object.version_set.all()
+                cache.set(key, version_list)
+        else:
+            version_list = self.object.version_set.all()
+
+        context_data['versions'] = version_list
+        return context_data
 
 
 class ProductDeleteView(DeleteView):
